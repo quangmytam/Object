@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 
 const Evaluation = () => {
   const [modelVersion, setModelVersion] = useState('v1.2');
-  const [dataset, setDataset]         = useState('BioPDB');
+  const [dataset, setDataset] = useState('BioPDB');
   const [isModelDropdownOpen, setIsModelDropdownOpen] = useState(false);
   const [isDatasetDropdownOpen, setIsDatasetDropdownOpen] = useState(false);
 

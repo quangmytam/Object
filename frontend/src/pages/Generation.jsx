@@ -1,15 +1,20 @@
 import React, { useState } from 'react';
-import { generatePeptides } from '../api/peptides';
 
 const Generation = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [peptides, setPeptides] = useState([]);
 
-  const handleGenerate = async () => {
+  const handleGenerate = () => {
     setIsLoading(true);
-    const result = await generatePeptides();
-    setPeptides(result);
-    setIsLoading(false);
+    setPeptides([]);
+    setTimeout(() => {
+      setPeptides([
+        { sequence: 'ACDEFGHIK', stability: 0.92 },
+        { sequence: 'LMNPQRSTV', stability: 0.88 },
+        { sequence: 'WYACDEFGH', stability: 0.85 },
+      ]);
+      setIsLoading(false);
+    }, 3000);
   };
 
   return (
@@ -52,16 +57,10 @@ const Generation = () => {
               disabled={isLoading}
               className="flex w-full cursor-pointer items-center justify-center gap-2 overflow-hidden rounded-lg h-12 bg-primary text-white text-base font-bold leading-normal tracking-[0.015em] hover:bg-primary/90 transition-colors shadow-lg shadow-primary/20 disabled:opacity-50"
             >
-              <span className="material-symbols-outlined">auto_awesome</span>
+              <span className="material-symbols-outlined">{isLoading ? 'hourglass_top' : 'auto_awesome'}</span>
               {isLoading ? 'Generating...' : 'Generate Peptides'}
             </button>
           </div>
-          {isLoading && (
-            <div className="flex flex-col items-center gap-3 p-4 rounded-lg bg-primary/10 dark:bg-primary/20">
-              <div className="w-8 h-8 border-4 border-primary/30 border-t-primary rounded-full animate-spin"></div>
-              <p className="text-sm font-medium text-primary">Generation in progress... (Est. 45s)</p>
-            </div>
-          )}
         </div>
       </aside>
       {/* Right Column: Results Area */}
@@ -72,7 +71,30 @@ const Generation = () => {
         </div>
         {/* Card Grid */}
         <div className="grid grid-cols-1 @container md:grid-cols-2 xl:grid-cols-3 gap-6">
-          {peptides.map((peptide, index) => (
+          {isLoading && (
+            <>
+              {[...Array(3)].map((_, i) => (
+                <div key={i} className="flex flex-col gap-5 p-5 rounded-xl bg-card-light/50 dark:bg-card-dark/50 border border-white/20 dark:border-white/5 animate-pulse">
+                  <div className="flex flex-col gap-3">
+                    <div className="h-3 w-1/3 bg-gray-300 dark:bg-gray-700 rounded"></div>
+                    <div className="h-6 w-3/4 bg-gray-300 dark:bg-gray-700 rounded"></div>
+                  </div>
+                  <div className="flex flex-col gap-3">
+                    <div className="flex justify-between items-baseline">
+                      <div className="h-4 w-1/2 bg-gray-300 dark:bg-gray-700 rounded"></div>
+                      <div className="h-8 w-1/4 bg-gray-300 dark:bg-gray-700 rounded"></div>
+                    </div>
+                    <div className="w-full bg-gray-300 dark:bg-gray-700 rounded-full h-2"></div>
+                  </div>
+                  <div className="flex items-center gap-2 mt-2">
+                    <div className="flex-1 h-10 rounded-lg bg-gray-300 dark:bg-gray-700"></div>
+                    <div className="flex-1 h-10 rounded-lg bg-gray-300 dark:bg-gray-700"></div>
+                  </div>
+                </div>
+              ))}
+            </>
+          )}
+          {!isLoading && peptides.map((peptide, index) => (
             <div key={index} className="flex flex-col gap-5 p-5 rounded-xl bg-card-light dark:bg-card-dark backdrop-blur-xl border border-white/50 dark:border-white/10 shadow-lg shadow-gray-500/5 dark:shadow-black/20">
               <div className="flex flex-col gap-2">
                 <p className="text-xs font-medium uppercase tracking-wider text-subtext-light dark:text-subtext-dark">Sequence</p>
@@ -87,9 +109,18 @@ const Generation = () => {
                   <div className="bg-accent-teal h-2 rounded-full" style={{ width: `${peptide.stability * 100}%` }}></div>
                 </div>
               </div>
+              <div className="flex items-center gap-2 mt-2">
+                <button className="flex-1 flex items-center justify-center gap-2 h-10 px-4 rounded-lg bg-primary/10 dark:bg-primary/20 text-primary text-sm font-bold hover:bg-primary/20 dark:hover:bg-primary/30 transition-colors">
+                  <span className="material-symbols-outlined text-base">content_copy</span>
+                  Copy
+                </button>
+                <button className="flex-1 flex items-center justify-center gap-2 h-10 px-4 rounded-lg bg-gray-500/10 text-text-light dark:text-text-dark text-sm font-medium hover:bg-gray-500/20 transition-colors">
+                  View Details
+                </button>
+              </div>
             </div>
           ))}
-          {peptides.length === 0 && !isLoading && (
+          {!isLoading && peptides.length === 0 && (
             <div className="lg:col-span-3 flex-1 flex flex-col items-center justify-center text-center p-10 border-2 border-dashed border-border-light dark:border-border-dark rounded-xl">
               <span className="material-symbols-outlined text-6xl text-subtext-light dark:text-subtext-dark opacity-50">science</span>
               <h3 className="text-xl font-bold mt-4">No Peptides Generated Yet</h3>
