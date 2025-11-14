@@ -24,11 +24,18 @@ const Evaluation = () => {
   };
 
   const navLinks = [
+<<<<<<< HEAD
     { to: '/', label: 'Home' },
     { to: '/evaluation', label: 'Evaluation' },
     { to: '/datasets', label: 'Datasets' },
     { to: '/documentation', label: 'Documentation' },
     { to: '/about', label: 'About' },
+=======
+    { to: '/generation', label: 'Generation' },
+    { to: '/datasets', label: 'Datasets' },
+    { to: '/training', label: 'Training' },
+    { to: '/documentation', label: 'Documentation' },
+>>>>>>> b10b01c (links pages correctly)
   ];
 
   return (

@@ -47,13 +47,13 @@ const Training = () => {
     return () => clearInterval(trainingInterval.current);
   }, []);
 
-  const navLinks = [
-    { to: '/', label: 'Home' },
-    { to: '/training', label: 'Training' },
+    const navLinks = [
+    { to: '/datasets', label: 'Datasets' },
+    { to: '/generation', label: 'Generation' },
+    { to: '/evaluation', label: 'Evaluation' },
     { to: '/documentation', label: 'Documentation' },
     { to: '/about', label: 'About' },
   ];
-
   return (
     <div className="relative flex h-auto min-h-screen w-full flex-col">
       <Header title="LightGNN-Peptide" navLinks={navLinks}>
