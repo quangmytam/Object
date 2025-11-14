@@ -40,9 +40,6 @@ const Datasets = () => {
   const navLinks = [
     { to: '/', label: 'Home' },
     { to: '/datasets', label: 'Datasets' },
-    { to: '/generation', label: 'Generation' },
-    { to: '/evaluation', label: 'Evaluation' },
-    { to: '/training', label: 'Training' },
     { to: '/documentation', label: 'Documentation' },
     { to: '/about', label: 'About' },
   ];
