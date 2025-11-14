@@ -1,17 +1,63 @@
-import React, { useState } from 'react';
-import EvaluationHeader from '../components/EvaluationHeader';
+import React from 'react';
+import { motion } from 'framer-motion';
 
 const Evaluation = () => {
-  const [modelVersion, setModelVersion] = useState('v1.2');
-  const [dataset, setDataset] = useState('BioPDB');
-  const [isModelDropdownOpen, setIsModelDropdownOpen] = useState(false);
-  const [isDatasetDropdownOpen, setIsDatasetDropdownOpen] = useState(false);
-
   return (
     <div className="relative flex h-auto min-h-screen w-full flex-col group/design-root overflow-x-hidden">
       <div className="layout-container flex h-full grow flex-col">
-        <EvaluationHeader />
-        <main className="flex-1 px-4 sm:px-6 lg:px-8 py-8 w-full max-w-7xl mx-auto">
+        <header className="sticky top-0 z-50 w-full bg-background-light/80 dark:bg-background-dark/80 backdrop-blur-sm border-b border-slate-200 dark:border-slate-800">
+          <div className="px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+            <div className="flex items-center justify-between whitespace-nowrap py-3">
+              <div className="flex items-center gap-4 text-slate-900 dark:text-slate-50">
+                <div className="size-6 text-primary">
+                  <svg fill="none" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+                    <path clipRule="evenodd" d="M24 18.4228L42 11.475V34.3663C42 34.7796 41.7457 35.1504 41.3601 35.2992L24 42V18.4228Z" fill="currentColor" fillRule="evenodd"></path>
+                    <path clipRule="evenodd" d="M24 8.18819L33.4123 11.574L24 15.2071L14.5877 11.574L24 8.18819ZM9 15.8487L21 20.4805V37.6263L9 32.9945V15.8487ZM27 37.6263V20.4805L39 15.8487V32.9945L27 37.6263ZM25.354 2.29885C24.4788 1.98402 23.5212 1.98402 22.646 2.29885L4.98454 8.65208C3.7939 9.08038 3 10.2097 3 11.475V34.3663C3 36.0196 4.01719 37.5026 5.55962 38.098L22.9197 44.7987C23.6149 45.0671 24.3851 45.0671 25.0803 44.7987L42.4404 38.098C43.9828 37.5026 45 36.0196 45 34.3663V11.475C45 10.2097 44.2061 9.08038 43.0155 8.65208L25.354 2.29885Z" fill="currentColor" fillRule="evenodd"></path>
+                  </svg>
+                </div>
+                <h2 className="text-lg font-bold leading-tight tracking-tight">LightGNN-Peptide</h2>
+              </div>
+              <div className="hidden md:flex flex-1 justify-center gap-8">
+                <div className="flex items-center gap-9">
+                  <a className="text-slate-700 dark:text-slate-300 hover:text-primary dark:hover:text-primary text-sm font-medium leading-normal" href="#">Dashboard</a>
+                  <a className="text-primary dark:text-primary text-sm font-bold leading-normal" href="#">Evaluation</a>
+                  <a className="text-slate-700 dark:text-slate-300 hover:text-primary dark:hover:text-primary text-sm font-medium leading-normal" href="#">Datasets</a>
+                  <a className="text-slate-700 dark:text-slate-300 hover:text-primary dark:hover:text-primary text-sm font-medium leading-normal" href="#">Models</a>
+                </div>
+              </div>
+              <div className="flex items-center gap-2">
+                <motion.button
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                  className="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 bg-primary text-white text-sm font-bold leading-normal tracking-[-0.015em]"
+                >
+                  <span className="truncate">Export Report</span>
+                </motion.button>
+                <motion.button
+                  whileHover={{ scale: 1.1 }}
+                  whileTap={{ scale: 0.9 }}
+                  className="hidden md:flex max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 bg-slate-200 dark:bg-slate-800 text-slate-700 dark:text-slate-300 gap-2 text-sm font-bold leading-normal tracking-[-0.015em] min-w-0 px-2.5"
+                >
+                  <span className="material-symbols-outlined">settings</span>
+                </motion.button>
+                <motion.button
+                  whileHover={{ scale: 1.1 }}
+                  whileTap={{ scale: 0.9 }}
+                  className="hidden md:flex max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 bg-slate-200 dark:bg-slate-800 text-slate-700 dark:text-slate-300 gap-2 text-sm font-bold leading-normal tracking-[-0.015em] min-w-0 px-2.5"
+                >
+                  <span className="material-symbols-outlined">notifications</span>
+                </motion.button>
+                <div className="bg-center bg-no-repeat aspect-square bg-cover rounded-full size-10" style={{ backgroundImage: 'url("https://lh3.googleusercontent.com/aida-public/AB6AXuBM-VtDN70FkFKkGwIm7vOAVg9XXfH9pwJDfw4-5XHuOGr_tFmy_fmx6LjTqXYqhy4YcKTIZYeycu3HDZZ-328G57c8VkHTRIw5c5sQ2svw6kAp3DkZEBVVmX6cW8Dg7dOMyI-1LMVd8NkcS4o4eHWfxqPD3_5C5Hbu_ALk6Ny6b3WIGe7hzioQUQbKsk8GcpM7mNY_FBmp5SaopDHXnqTVtrt2NdxbCVmLijjzo-3vPdavnV3NHrViHO0-If40K77t1TtEVKaY0Ac")' }}></div>
+              </div>
+            </div>
+          </div>
+        </header>
+        <motion.main
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
+          className="flex-1 px-4 sm:px-6 lg:px-8 py-8 w-full max-w-7xl mx-auto"
+        >
           <div className="layout-content-container flex flex-col flex-1 gap-8">
             <div className="flex flex-wrap justify-between gap-4 items-start">
               <div className="flex min-w-72 flex-col gap-2">
@@ -20,65 +66,70 @@ const Evaluation = () => {
               </div>
             </div>
             <div className="flex gap-3 overflow-x-auto pb-2">
-              <div className="relative">
-                <button onClick={() => setIsModelDropdownOpen(!isModelDropdownOpen)} className="flex h-8 shrink-0 items-center justify-center gap-x-2 rounded-lg bg-slate-200 dark:bg-slate-800 px-4">
-                  <p className="text-slate-900 dark:text-slate-50 text-sm font-medium leading-normal">Model Version: {modelVersion}</p>
-                  <span className="material-symbols-outlined text-slate-500 dark:text-slate-400">expand_more</span>
-                </button>
-                {isModelDropdownOpen && (
-                  <div className="absolute z-10 mt-2 w-56 rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
-                    <div className="py-1">
-                      <a href="#" onClick={(e) => { e.preventDefault(); setModelVersion('v1.2'); setIsModelDropdownOpen(false); }} className="text-gray-700 block px-4 py-2 text-sm">v1.2</a>
-                      <a href="#" onClick={(e) => { e.preventDefault(); setModelVersion('v1.1'); setIsModelDropdownOpen(false); }} className="text-gray-700 block px-4 py-2 text-sm">v1.1</a>
-                      <a href="#" onClick={(e) => { e.preventDefault(); setModelVersion('v1.0'); setIsModelDropdownOpen(false); }} className="text-gray-700 block px-4 py-2 text-sm">v1.0</a>
-                    </div>
-                  </div>
-                )}
-              </div>
-              <div className="relative">
-                <button onClick={() => setIsDatasetDropdownOpen(!isDatasetDropdownOpen)} className="flex h-8 shrink-0 items-center justify-center gap-x-2 rounded-lg bg-slate-200 dark:bg-slate-800 px-4">
-                  <p className="text-slate-900 dark:text-slate-50 text-sm font-medium leading-normal">Dataset: {dataset}</p>
-                  <span className="material-symbols-outlined text-slate-500 dark:text-slate-400">expand_more</span>
-                </button>
-                {isDatasetDropdownOpen && (
-                  <div className="absolute z-10 mt-2 w-56 rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
-                    <div className="py-1">
-                      <a href="#" onClick={(e) => { e.preventDefault(); setDataset('BioPDB'); setIsDatasetDropdownOpen(false); }} className="text-gray-700 block px-4 py-2 text-sm">BioPDB</a>
-                      <a href="#" onClick={(e) => { e.preventDefault(); setDataset('Custom Dataset Alpha'); setIsDatasetDropdownOpen(false); }} className="text-gray-700 block px-4 py-2 text-sm">Custom Dataset Alpha</a>
-                      <a href="#" onClick={(e) => { e.preventDefault(); setDataset('PeptideNet Benchmark'); setIsDatasetDropdownOpen(false); }} className="text-gray-700 block px-4 py-2 text-sm">PeptideNet Benchmark</a>
-                    </div>
-                  </div>
-                )}
-              </div>
-              <button className="flex h-8 shrink-0 items-center justify-center gap-x-2 rounded-lg bg-slate-200 dark:bg-slate-800 px-4">
+              <motion.button
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                className="flex h-8 shrink-0 items-center justify-center gap-x-2 rounded-lg bg-slate-200 dark:bg-slate-800 px-4"
+              >
+                <p className="text-slate-900 dark:text-slate-50 text-sm font-medium leading-normal">Model Version: v1.2</p>
+                <span className="material-symbols-outlined text-slate-500 dark:text-slate-400">expand_more</span>
+              </motion.button>
+              <motion.button
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                className="flex h-8 shrink-0 items-center justify-center gap-x-2 rounded-lg bg-slate-200 dark:bg-slate-800 px-4"
+              >
+                <p className="text-slate-900 dark:text-slate-50 text-sm font-medium leading-normal">Dataset: BioPDB</p>
+                <span className="material-symbols-outlined text-slate-500 dark:text-slate-400">expand_more</span>
+              </motion.button>
+              <motion.button
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                className="flex h-8 shrink-0 items-center justify-center gap-x-2 rounded-lg bg-slate-200 dark:bg-slate-800 px-4"
+              >
                 <p className="text-slate-900 dark:text-slate-50 text-sm font-medium leading-normal">Date: Latest</p>
                 <span className="material-symbols-outlined text-slate-500 dark:text-slate-400">expand_more</span>
-              </button>
+              </motion.button>
             </div>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-              <div className="flex flex-col gap-2 rounded-xl p-6 border border-slate-200 dark:border-slate-800 bg-white/70 dark:bg-slate-900/70 backdrop-blur-sm">
+              <motion.div
+                whileHover={{ y: -4, boxShadow: '0 10px 15px -3px rgba(0, 0, 0, 0.07), 0 4px 6px -4px rgba(0, 0, 0, 0.07)' }}
+                className="flex flex-col gap-2 rounded-xl p-6 border border-slate-200 dark:border-slate-800 bg-white/70 dark:bg-slate-900/70 backdrop-blur-sm"
+              >
                 <p className="text-slate-700 dark:text-slate-300 text-base font-medium leading-normal">Overall Validity</p>
                 <p className="text-slate-900 dark:text-slate-50 tracking-tight text-3xl font-bold leading-tight">98.2%</p>
                 <p className="text-green-600 dark:text-green-500 text-sm font-medium leading-normal">+1.5%</p>
-              </div>
-              <div className="flex flex-col gap-2 rounded-xl p-6 border border-slate-200 dark:border-slate-800 bg-white/70 dark:bg-slate-900/70 backdrop-blur-sm">
+              </motion.div>
+              <motion.div
+                whileHover={{ y: -4, boxShadow: '0 10px 15px -3px rgba(0, 0, 0, 0.07), 0 4px 6px -4px rgba(0, 0, 0, 0.07)' }}
+                className="flex flex-col gap-2 rounded-xl p-6 border border-slate-200 dark:border-slate-800 bg-white/70 dark:bg-slate-900/70 backdrop-blur-sm"
+              >
                 <p className="text-slate-700 dark:text-slate-300 text-base font-medium leading-normal">Average Stability</p>
                 <p className="text-slate-900 dark:text-slate-50 tracking-tight text-3xl font-bold leading-tight">0.91</p>
                 <p className="text-green-600 dark:text-green-500 text-sm font-medium leading-normal">+0.02</p>
-              </div>
-              <div className="flex flex-col gap-2 rounded-xl p-6 border border-slate-200 dark:border-slate-800 bg-white/70 dark:bg-slate-900/70 backdrop-blur-sm">
+              </motion.div>
+              <motion.div
+                whileHover={{ y: -4, boxShadow: '0 10px 15px -3px rgba(0, 0, 0, 0.07), 0 4px 6px -4px rgba(0, 0, 0, 0.07)' }}
+                className="flex flex-col gap-2 rounded-xl p-6 border border-slate-200 dark:border-slate-800 bg-white/70 dark:bg-slate-900/70 backdrop-blur-sm"
+              >
                 <p className="text-slate-700 dark:text-slate-300 text-base font-medium leading-normal">Uniqueness</p>
                 <p className="text-slate-900 dark:text-slate-50 tracking-tight text-3xl font-bold leading-tight">99.7%</p>
                 <p className="text-red-600 dark:text-red-500 text-sm font-medium leading-normal">-0.1%</p>
-              </div>
-              <div className="flex flex-col gap-2 rounded-xl p-6 border border-slate-200 dark:border-slate-800 bg-white/70 dark:bg-slate-900/70 backdrop-blur-sm">
+              </motion.div>
+              <motion.div
+                whileHover={{ y: -4, boxShadow: '0 10px 15px -3px rgba(0, 0, 0, 0.07), 0 4px 6px -4px rgba(0, 0, 0, 0.07)' }}
+                className="flex flex-col gap-2 rounded-xl p-6 border border-slate-200 dark:border-slate-800 bg-white/70 dark:bg-slate-900/70 backdrop-blur-sm"
+              >
                 <p className="text-slate-700 dark:text-slate-300 text-base font-medium leading-normal">Diversity Score</p>
                 <p className="text-slate-900 dark:text-slate-50 tracking-tight text-3xl font-bold leading-tight">0.85</p>
                 <p className="text-green-600 dark:text-green-500 text-sm font-medium leading-normal">+0.04</p>
-              </div>
+              </motion.div>
             </div>
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-              <div className="flex flex-col gap-4 rounded-xl border border-slate-200 dark:border-slate-800 p-6 bg-white/70 dark:bg-slate-900/70 backdrop-blur-sm">
+              <motion.div
+                whileHover={{ y: -4, boxShadow: '0 10px 15px -3px rgba(0, 0, 0, 0.07), 0 4px 6px -4px rgba(0, 0, 0, 0.07)' }}
+                className="flex flex-col gap-4 rounded-xl border border-slate-200 dark:border-slate-800 p-6 bg-white/70 dark:bg-slate-900/70 backdrop-blur-sm"
+              >
                 <div className="flex flex-col">
                   <p className="text-slate-900 dark:text-slate-50 text-lg font-bold leading-normal">Performance Metrics</p>
                   <p className="text-slate-500 dark:text-slate-400 text-sm font-normal leading-normal">Comparison of key generation scores</p>
@@ -89,8 +140,11 @@ const Evaluation = () => {
                   <div className="w-full flex flex-col items-center gap-2"><div className="bg-primary/20 dark:bg-primary/30 w-full rounded-t-md" style={{ height: '75%' }}></div><p className="text-slate-600 dark:text-slate-400 text-xs font-bold leading-normal tracking-wide uppercase">Novelty</p></div>
                   <div className="w-full flex flex-col items-center gap-2"><div className="bg-primary dark:bg-primary w-full rounded-t-md" style={{ height: '85%' }}></div><p className="text-slate-600 dark:text-slate-400 text-xs font-bold leading-normal tracking-wide uppercase">Diversity</p></div>
                 </div>
-              </div>
-              <div className="flex flex-col gap-4 rounded-xl border border-slate-200 dark:border-slate-800 p-6 bg-white/70 dark:bg-slate-900/70 backdrop-blur-sm">
+              </motion.div>
+              <motion.div
+                whileHover={{ y: -4, boxShadow: '0 10px 15px -3px rgba(0, 0, 0, 0.07), 0 4px 6px -4px rgba(0, 0, 0, 0.07)' }}
+                className="flex flex-col gap-4 rounded-xl border border-slate-200 dark:border-slate-800 p-6 bg-white/70 dark:bg-slate-900/70 backdrop-blur-sm"
+              >
                 <div className="flex flex-col">
                   <p className="text-slate-900 dark:text-slate-50 text-lg font-bold leading-normal">Training Progression</p>
                   <p className="text-slate-500 dark:text-slate-400 text-sm font-normal leading-normal">Stability score over the last 100 epochs</p>
@@ -115,10 +169,13 @@ const Evaluation = () => {
                     <p className="text-slate-500 dark:text-slate-400 text-xs font-bold tracking-wide">100</p>
                   </div>
                 </div>
-              </div>
+              </motion.div>
             </div>
             <div className="grid grid-cols-1 lg:grid-cols-5 gap-6">
-              <div className="lg:col-span-2 flex flex-col gap-4 rounded-xl border border-slate-200 dark:border-slate-800 p-6 bg-white/70 dark:bg-slate-900/70 backdrop-blur-sm">
+              <motion.div
+                whileHover={{ y: -4, boxShadow: '0 10px 15px -3px rgba(0, 0, 0, 0.07), 0 4px 6px -4px rgba(0, 0, 0, 0.07)' }}
+                className="lg:col-span-2 flex flex-col gap-4 rounded-xl border border-slate-200 dark:border-slate-800 p-6 bg-white/70 dark:bg-slate-900/70 backdrop-blur-sm"
+              >
                 <div className="flex flex-col">
                   <p className="text-slate-900 dark:text-slate-50 text-lg font-bold leading-normal">Overall Model Performance</p>
                   <p className="text-slate-500 dark:text-slate-400 text-sm font-normal leading-normal">Holistic view of key metrics</p>
@@ -126,8 +183,11 @@ const Evaluation = () => {
                 <div className="flex items-center justify-center flex-1 h-full min-h-[250px]">
                   <img alt="A radar chart showing model performance metrics: Validity, Stability, Diversity, Uniqueness, and Novelty." className="w-full h-full object-contain dark:invert" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDMaDNeplp7QUI0xAzaTsnI_YZbMTApv4jjIuQSYjr0EqPWNQQEkLdzHU5SBEbYZV9WY7wpM2F2EeRyAd2uOcE6U3UR38kQqSNWX-tnxmggGf6U-uwp_U-jYPXCeQmrl_5ilZaNJvuGXcFEZ9v23fN2kMeiTuwaqurB22X8dC-ZPpJ14bI4A8WWGhe_Vi03k1Jvyx06ZdI07FNsh44OMormp6-c2hLENa3RCpvBkVgwRL7isUnraodrLaO8zYMwAICXEmAsgS9Kc2E" />
                 </div>
-              </div>
-              <div className="lg:col-span-3 flex flex-col gap-4 rounded-xl border border-slate-200 dark:border-slate-800 p-6 bg-white/70 dark:bg-slate-900/70 backdrop-blur-sm">
+              </motion.div>
+              <motion.div
+                whileHover={{ y: -4, boxShadow: '0 10px 15px -3px rgba(0, 0, 0, 0.07), 0 4px 6px -4px rgba(0, 0, 0, 0.07)' }}
+                className="lg:col-span-3 flex flex-col gap-4 rounded-xl border border-slate-200 dark:border-slate-800 p-6 bg-white/70 dark:bg-slate-900/70 backdrop-blur-sm"
+              >
                 <div className="flex flex-col">
                   <p className="text-slate-900 dark:text-slate-50 text-lg font-bold leading-normal">Sample Generated Peptides</p>
                   <p className="text-slate-500 dark:text-slate-400 text-sm font-normal leading-normal">A list of generated peptides with their scores</p>
@@ -170,10 +230,10 @@ const Evaluation = () => {
                     </tbody>
                   </table>
                 </div>
-              </div>
+              </motion.div>
             </div>
           </div>
-        </main>
+        </motion.main>
       </div>
     </div>
   );
