@@ -56,22 +56,7 @@ const Training = () => {
 
   return (
     <div className="relative flex h-auto min-h-screen w-full flex-col">
-      <Header title="LightGNN-Peptide" navLinks={navLinks}>
-        <div className="flex items-center gap-2 text-sm text-green-500">
-          <span className="relative flex h-2 w-2">
-            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
-            <span className="relative inline-flex rounded-full h-2 w-2 bg-green-500"></span>
-          </span>
-          Connected to BioPDB
-        </div>
-        <motion.button
-          whileHover={{ scale: 1.1 }}
-          whileTap={{ scale: 0.9 }}
-          className="flex items-center justify-center rounded-lg h-10 w-10 bg-surface-light dark:bg-surface-dark/50 border border-border-light dark:border-border-dark shadow-sm hover:bg-background-light/50 dark:hover:bg-background-dark"
-        >
-          <span className="material-symbols-outlined text-xl text-text-light/80 dark:text-text-dark/80">settings</span>
-        </motion.button>
-      </Header>
+      <Header title="LightGNN-Peptide" navLinks={navLinks} />
       {/* Main Content */}
       <motion.main
         initial={{ opacity: 0, y: 20 }}

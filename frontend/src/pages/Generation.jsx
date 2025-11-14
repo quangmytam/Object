@@ -24,17 +24,15 @@ const Generation = () => {
   };
 
   const navLinks = [
-    { to: '/datasets', label: 'Datasets' },
-    { to: '/training', label: 'Training' },
-    { to: '/evaluation', label: 'Evaluation' },
+    { to: '/', label: 'Home' },
+    { to: '/generation', label: 'Generation' },
     { to: '/documentation', label: 'Documentation' },
     { to: '/about', label: 'About' },
   ];
 
   return (
     <div className="relative flex h-auto min-h-screen w-full flex-col">
-      <Header title="LightGNN-Peptide" navLinks={navLinks}>
-      </Header>
+      <Header title="LightGNN-Peptide" navLinks={navLinks} />
       <motion.main
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
