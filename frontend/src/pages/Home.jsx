@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import HomeHeader from '../components/HomeHeader';
 
 const Home = () => {
   return (
@@ -12,6 +13,7 @@ const Home = () => {
       {/* Main Content Wrapper */}
       <div className="flex flex-1 justify-center px-4 py-5 sm:px-8 md:px-16 lg:px-24">
         <div className="flex w-full max-w-6xl flex-col">
+          <HomeHeader />
           <main className="flex-grow py-12 md:py-20">
             {/* HeroSection */}
             <section className="text-center">
