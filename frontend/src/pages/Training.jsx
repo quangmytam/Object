@@ -47,9 +47,16 @@ const Training = () => {
     return () => clearInterval(trainingInterval.current);
   }, []);
 
+  const navLinks = [
+    { to: '/', label: 'Home' },
+    { to: '/training', label: 'Training' },
+    { to: '/documentation', label: 'Documentation' },
+    { to: '/about', label: 'About' },
+  ];
+
   return (
     <div className="relative flex h-auto min-h-screen w-full flex-col">
-      <Header title="LightGNN-Peptide">
+      <Header title="LightGNN-Peptide" navLinks={navLinks}>
         <div className="flex items-center gap-2 text-sm text-green-500">
           <span className="relative flex h-2 w-2">
             <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>

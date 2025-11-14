@@ -38,10 +38,10 @@ const Datasets = () => {
   };
 
   const navLinks = [
-    { to: '/dashboard', label: 'Dashboard' },
-    { to: '/models', label: 'Models' },
-    { to: '/results', label: 'Results' },
+    { to: '/', label: 'Home' },
+    { to: '/datasets', label: 'Datasets' },
     { to: '/documentation', label: 'Documentation' },
+    { to: '/about', label: 'About' },
   ];
 
   const getStatusIndicator = (status) => {

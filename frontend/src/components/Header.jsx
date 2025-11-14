@@ -1,7 +1,10 @@
-import React from 'react';
+import React, 'useContext'
 import { NavLink } from 'react-router-dom';
+import { ThemeContext } from '../contexts/ThemeContext';
 
 const Header = ({ title, navLinks, children }) => {
+  const { theme, toggleTheme } = useContext(ThemeContext);
+
   return (
     <header className="sticky top-0 z-10 flex items-center justify-between whitespace-nowrap border-b border-solid border-border-light dark:border-border-dark px-6 md:px-10 py-3 glass-card">
       <div className="flex items-center gap-4 text-text-light dark:text-text-dark">
@@ -33,6 +36,14 @@ const Header = ({ title, navLinks, children }) => {
             </div>
           </div>
         )}
+        <button
+          onClick={toggleTheme}
+          className="flex items-center justify-center rounded-lg h-10 w-10 bg-slate-200/50 dark:bg-slate-700/50 text-[#0d141b] dark:text-slate-200"
+        >
+          <span className="material-symbols-outlined text-xl">
+            {theme === 'light' ? 'dark_mode' : 'light_mode'}
+          </span>
+        </button>
         {children}
       </div>
     </header>

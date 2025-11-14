@@ -24,10 +24,11 @@ const Evaluation = () => {
   };
 
   const navLinks = [
-    { to: '/dashboard', label: 'Dashboard' },
+    { to: '/', label: 'Home' },
     { to: '/evaluation', label: 'Evaluation' },
     { to: '/datasets', label: 'Datasets' },
-    { to: '/models', label: 'Models' },
+    { to: '/documentation', label: 'Documentation' },
+    { to: '/about', label: 'About' },
   ];
 
   return (

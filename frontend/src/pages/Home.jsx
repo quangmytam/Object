@@ -8,8 +8,7 @@ const Home = () => {
   const navigate = useNavigate();
   const navLinks = [
     { to: '/', label: 'Home' },
-    { to: '/docs', label: 'Documentation' },
-    { to: '/publications', label: 'Publications' },
+    { to: '/documentation', label: 'Documentation' },
     { to: '/about', label: 'About' },
   ];
 

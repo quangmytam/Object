@@ -6,6 +6,8 @@ import Training from './pages/Training';
 import Evaluation from './pages/Evaluation';
 import Generation from './pages/Generation';
 import Datasets from './pages/Datasets';
+import Documentation from './pages/Documentation';
+import About from './pages/About';
 
 function App() {
   return (
@@ -17,6 +19,8 @@ function App() {
           <Route path="evaluation" element={<Evaluation />} />
           <Route path="generation" element={<Generation />} />
           <Route path="datasets" element={<Datasets />} />
+          <Route path="documentation" element={<Documentation />} />
+          <Route path="about" element={<About />} />
         </Route>
       </Routes>
     </BrowserRouter>
