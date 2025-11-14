@@ -24,17 +24,10 @@ const Generation = () => {
   };
 
   const navLinks = [
-<<<<<<< HEAD
     { to: '/', label: 'Home' },
     { to: '/generation', label: 'Generation' },
     { to: '/documentation', label: 'Documentation' },
     { to: '/about', label: 'About' },
-=======
-    { to: '/datasets', label: 'Datasets' },
-    { to: '/training', label: 'Training' },
-    { to: '/evaluation', label: 'Evaluation' },
-    { to: '/documentation', label: 'Documentation' },
->>>>>>> b10b01c (links pages correctly)
   ];
 
   return (
