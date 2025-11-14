@@ -1,13 +1,13 @@
 import React, 'useContext'
-import { NavLink } from 'react-router-dom';
+import { NavLink, Link } from 'react-router-dom';
 import { ThemeContext } from '../contexts/ThemeContext';
 
-const Header = ({ title, navLinks, children }) => {
+const Header = ({ title, navLinks }) => {
   const { theme, toggleTheme } = useContext(ThemeContext);
 
   return (
     <header className="sticky top-0 z-10 flex items-center justify-between whitespace-nowrap border-b border-solid border-border-light dark:border-border-dark px-6 md:px-10 py-3 glass-card">
-      <div className="flex items-center gap-4 text-text-light dark:text-text-dark">
+      <Link to="/" className="flex items-center gap-4 text-text-light dark:text-text-dark">
         <div className="size-6 text-primary">
           <svg fill="currentColor" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
             <path clipRule="evenodd" d="M24 18.4228L42 11.475V34.3663C42 34.7796 41.7457 35.1504 41.3601 35.2992L24 42V18.4228Z" fillRule="evenodd"></path>
@@ -15,7 +15,7 @@ const Header = ({ title, navLinks, children }) => {
           </svg>
         </div>
         <h2 className="text-lg font-bold tracking-tight">{title}</h2>
-      </div>
+      </Link>
       <div className="flex flex-1 justify-end gap-4 items-center">
         {navLinks && (
           <div className="hidden md:flex flex-1 justify-center gap-8">

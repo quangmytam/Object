@@ -41,30 +41,7 @@ const Evaluation = () => {
   return (
     <div className="relative flex h-auto min-h-screen w-full flex-col group/design-root overflow-x-hidden">
       <div className="layout-container flex h-full grow flex-col">
-        <Header title="LightGNN-Peptide" navLinks={navLinks}>
-          <motion.button
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-            className="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 bg-primary text-white text-sm font-bold leading-normal tracking-[-0.015em]"
-          >
-            <span className="truncate">Export Report</span>
-          </motion.button>
-          <motion.button
-            whileHover={{ scale: 1.1 }}
-            whileTap={{ scale: 0.9 }}
-            className="hidden md:flex max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 bg-slate-200 dark:bg-slate-800 text-slate-700 dark:text-slate-300 gap-2 text-sm font-bold leading-normal tracking-[-0.015em] min-w-0 px-2.5"
-          >
-            <span className="material-symbols-outlined">settings</span>
-          </motion.button>
-          <motion.button
-            whileHover={{ scale: 1.1 }}
-            whileTap={{ scale: 0.9 }}
-            className="hidden md:flex max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 bg-slate-200 dark:bg-slate-800 text-slate-700 dark:text-slate-300 gap-2 text-sm font-bold leading-normal tracking-[-0.015em] min-w-0 px-2.5"
-          >
-            <span className="material-symbols-outlined">notifications</span>
-          </motion.button>
-          <div className="bg-center bg-no-repeat aspect-square bg-cover rounded-full size-10" style={{ backgroundImage: 'url("https://lh3.googleusercontent.com/aida-public/AB6AXuBM-VtDN70FkFKkGwIm7vOAVg9XXfH9pwJDfw4-5XHuOGr_tFmy_fmx6LjTqXYqhy4YcKTIZYeycu3HDZZ-328G57c8VkHTRIw5c5sQ2svw6kAp3DkZEBVVmX6cW8Dg7dOMyI-1LMVd8NkcS4o4eHWfxqPD3_5C5Hbu_ALk6Ny6b3WIGe7hzioQUQbKsk8GcpM7mNY_FBmp5SaopDHXnqTVtrt2NdxbCVmLijjzo-3vPdavnV3NHrViHO0-If40K77t1TtEVKaY0Ac")' }}></div>
-        </Header>
+        <Header title="LightGNN-Peptide" navLinks={navLinks} />
         <motion.main
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}

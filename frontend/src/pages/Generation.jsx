@@ -39,15 +39,7 @@ const Generation = () => {
 
   return (
     <div className="relative flex h-auto min-h-screen w-full flex-col">
-      <Header title="LightGNN-Peptide" navLinks={navLinks}>
-        <motion.button
-          whileHover={{ scale: 1.1 }}
-          whileTap={{ scale: 0.9 }}
-          className="flex cursor-pointer items-center justify-center rounded-full h-10 w-10 bg-primary/20 hover:bg-primary/30 text-primary transition-colors"
-        >
-          <span className="material-symbols-outlined text-xl">person</span>
-        </motion.button>
-      </Header>
+      <Header title="LightGNN-Peptide" navLinks={navLinks} />
       <motion.main
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}

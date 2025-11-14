@@ -75,16 +75,7 @@ const Datasets = () => {
 
   return (
     <div className="relative flex h-auto min-h-screen w-full flex-col">
-      <Header title="LightGNN-Peptide" navLinks={navLinks}>
-        <motion.button
-          whileHover={{ scale: 1.1 }}
-          whileTap={{ scale: 0.9 }}
-          className="flex cursor-pointer items-center justify-center rounded-lg h-10 w-10 bg-slate-200/50 dark:bg-slate-700/50 text-[#0d141b] dark:text-slate-200"
-        >
-          <span className="material-symbols-outlined text-xl">dark_mode</span>
-        </motion.button>
-        <div className="bg-center bg-no-repeat aspect-square bg-cover rounded-full size-10" style={{ backgroundImage: 'url("https://lh3.googleusercontent.com/aida-public/AB6AXuASxvJpfTeJ6zDE7ZDed_dU88oDFtc_ksx9QdkEIMr3Ypo2CK_NzGnIoUW_n-s7WHCYPoxJb_KtEgVvFLxN7BwE2wrHw9dY5AZkGfWnHJqPROfDuN7cD5tlaXXNfg7CmV521-iK6GGVI8OUesgd9gdE75j0Owqiq-NGzKAG9XgcuwxPejD1Q864vpVOerkbTZ55KVw-UXB8iuEHzShe0nsoBkDr9S-c1VveKSm3Z149m3Odn5rtlg6teURz2vMX1AXTfWiKVEZRvl4")' }}></div>
-      </Header>
+      <Header title="LightGNN-Peptide" navLinks={navLinks} />
       <motion.main
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
