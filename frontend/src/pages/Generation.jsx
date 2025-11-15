@@ -23,23 +23,18 @@ const Generation = () => {
     setIsGenerating(false);
   };
 
-  const navLinks = [
-    { to: '/', label: 'Home' },
-    { to: '/generation', label: 'Generation' },
-    { to: '/documentation', label: 'Documentation' },
-    { to: '/about', label: 'About' },
-  ];
-
   return (
     <div className="relative flex h-auto min-h-screen w-full flex-col">
-      <Header title="LightGNN-Peptide" navLinks={navLinks} />
-      <motion.main
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.5 }}
-        className="flex flex-1 w-full max-w-screen-2xl mx-auto p-6 md:p-10"
-      >
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 w-full">
+      <div className="flex flex-1 justify-center px-4 sm:px-8 md:px-16 lg:px-24">
+        <div className="flex w-full max-w-6xl flex-col">
+          <Header />
+          <motion.main
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
+            className="flex flex-1 w-full max-w-screen-2xl mx-auto p-6 md:p-10"
+          >
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 w-full">
           {/* Left Column: Control Panel */}
           <aside className="lg:col-span-4 xl:col-span-3 flex flex-col gap-8">
             <div className="flex flex-col gap-2">

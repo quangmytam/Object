@@ -37,13 +37,6 @@ const Datasets = () => {
     fileInputRef.current.click();
   };
 
-  const navLinks = [
-    { to: '/', label: 'Home' },
-    { to: '/datasets', label: 'Datasets' },
-    { to: '/documentation', label: 'Documentation' },
-    { to: '/about', label: 'About' },
-  ];
-
   const getStatusIndicator = (status) => {
     switch (status) {
       case 'Analyzed':
@@ -72,14 +65,16 @@ const Datasets = () => {
 
   return (
     <div className="relative flex h-auto min-h-screen w-full flex-col">
-      <Header title="LightGNN-Peptide" navLinks={navLinks} />
-      <motion.main
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.5 }}
-        className="flex-1 p-6 sm:p-10"
-      >
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
+      <div className="flex flex-1 justify-center px-4 sm:px-8 md:px-16 lg:px-24">
+        <div className="flex w-full max-w-6xl flex-col">
+          <Header />
+          <motion.main
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
+            className="flex-1 p-6 sm:p-10"
+          >
+            <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 w-full">
           {/* Left Column */}
           <div className="lg:col-span-1 flex flex-col gap-8">
             <motion.div

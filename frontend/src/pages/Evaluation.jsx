@@ -23,31 +23,31 @@ const Evaluation = () => {
     }));
   };
 
-  const navLinks = [
-    { to: '/', label: 'Home' },
-    { to: '/evaluation', label: 'Evaluation' },
-    { to: '/datasets', label: 'Datasets' },
-    { to: '/documentation', label: 'Documentation' },
-    { to: '/about', label: 'About' },
-  ];
-
   return (
     <div className="relative flex h-auto min-h-screen w-full flex-col group/design-root overflow-x-hidden">
-      <div className="layout-container flex h-full grow flex-col">
-        <Header title="LightGNN-Peptide" navLinks={navLinks} />
-        <motion.main
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
-          className="flex-1 px-4 sm:px-6 lg:px-8 py-8 w-full max-w-7xl mx-auto"
-        >
-          <div className="layout-content-container flex flex-col flex-1 gap-8">
-            <div className="flex flex-wrap justify-between gap-4 items-start">
-              <div className="flex min-w-72 flex-col gap-2">
-                <p className="text-slate-900 dark:text-slate-50 text-4xl font-black leading-tight tracking-[-0.033em]">LightGNN-Peptide: Model Evaluation</p>
-                <p className="text-slate-500 dark:text-slate-400 text-base font-normal leading-normal">Performance metrics for the peptide generation model trained on the BioPDB dataset.</p>
+      <div className="flex flex-1 justify-center px-4 sm:px-8 md:px-16 lg:px-24">
+        <div className="flex w-full max-w-6xl flex-col">
+          <Header />
+          <motion.main
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
+            className="flex-1 px-4 sm:px-6 lg:px-8 py-8 w-full"
+          >
+            <div className="layout-content-container flex flex-col flex-1 gap-8">
+              <div className="flex flex-wrap justify-between gap-4 items-start">
+                <div className="flex min-w-72 flex-col gap-2">
+                  <p className="text-slate-900 dark:text-slate-50 text-4xl font-black leading-tight tracking-[-0.033em]">LightGNN-Peptide: Model Evaluation</p>
+                  <p className="text-slate-500 dark:text-slate-400 text-base font-normal leading-normal">Performance metrics for the peptide generation model trained on the BioPDB dataset.</p>
+                </div>
+                <motion.button
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                  className="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 bg-primary text-white text-sm font-bold leading-normal tracking-[-0.015em]"
+                >
+                  <span className="truncate">Export Report</span>
+                </motion.button>
               </div>
-            </div>
             <div className="flex gap-3 overflow-x-auto pb-2">
               <motion.button
                 whileHover={{ scale: 1.05 }}

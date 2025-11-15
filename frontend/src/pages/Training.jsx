@@ -47,24 +47,19 @@ const Training = () => {
     return () => clearInterval(trainingInterval.current);
   }, []);
 
-  const navLinks = [
-    { to: '/', label: 'Home' },
-    { to: '/training', label: 'Training' },
-    { to: '/documentation', label: 'Documentation' },
-    { to: '/about', label: 'About' },
-  ];
-
   return (
     <div className="relative flex h-auto min-h-screen w-full flex-col">
-      <Header title="LightGNN-Peptide" navLinks={navLinks} />
-      {/* Main Content */}
-      <motion.main
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.5 }}
-        className="flex-1 p-6 md:p-10"
-      >
-        <div className="max-w-7xl mx-auto">
+      <div className="flex flex-1 justify-center px-4 sm:px-8 md:px-16 lg:px-24">
+        <div className="flex w-full max-w-6xl flex-col">
+          <Header />
+          {/* Main Content */}
+          <motion.main
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
+            className="flex-1 p-6 md:p-10"
+          >
+            <div className="max-w-7xl mx-auto">
           {/* Page Heading */}
           <div className="mb-8">
             <p className="text-4xl font-black leading-tight tracking-tighter">Model Training Dashboard</p>
