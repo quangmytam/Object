@@ -23,15 +23,6 @@ const Evaluation = () => {
     }));
   };
 
-  const navLinks = [
-    { to: '/datasets', label: 'Datasets' },
-    { to: '/training', label: 'Training' },
-    { to: '/generation', label: 'Generation' },
-    { to: '/evaluation', label: 'Evaluation' },
-    { to: '/documentation', label: 'Documentation' },
-    { to: '/about', label: 'About' },
-  ];
-
   return (
     <PageLayout>
       <div className="layout-content-container flex flex-col flex-1 gap-8">

@@ -23,15 +23,6 @@ const Generation = () => {
     setIsGenerating(false);
   };
 
-  const navLinks = [
-    { to: '/datasets', label: 'Datasets' },
-    { to: '/training', label: 'Training' },
-    { to: '/generation', label: 'Generation' },
-    { to: '/evaluation', label: 'Evaluation' },
-    { to: '/documentation', label: 'Documentation' },
-    { to: '/about', label: 'About' },
-  ];
-
   return (
     <PageLayout>
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 w-full">

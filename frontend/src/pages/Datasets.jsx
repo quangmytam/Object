@@ -37,15 +37,6 @@ const Datasets = () => {
     fileInputRef.current.click();
   };
 
-  const navLinks = [
-    { to: '/datasets', label: 'Datasets' },
-    { to: '/training', label: 'Training' },
-    { to: '/generation', label: 'Generation' },
-    { to: '/evaluation', label: 'Evaluation' },
-    { to: '/documentation', label: 'Documentation' },
-    { to: '/about', label: 'About' },
-  ];
-
   const getStatusIndicator = (status) => {
     switch (status) {
       case 'Analyzed':
